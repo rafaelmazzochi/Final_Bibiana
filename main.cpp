@@ -9,9 +9,10 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include "quant_cidades.h"
 
 int main(){
-    int continua_menu=0, opcao_menu=0;
+    int continua_menu=0, opcao_menu=0, quantidade_cidades;
     
     while(continua_menu!=1){
         printf(" ------------------------------------------------- \n");
@@ -33,6 +34,9 @@ int main(){
     
     switch (opcao_menu) {
         case 1:
+            
+            quant_cidades(quantidade_cidades);
+            
             break;
         
         case 2:
