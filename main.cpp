@@ -30,4 +30,18 @@ int main(){
         }
         while(opcao_menu<1 || opcao_menu>4);
     }
+    
+    switch (opcao_menu) {
+        case 1:
+            break;
+        
+        case 2:
+            break;
+            
+        case 3:
+            break;
+            
+        case 4:
+            exit(0);
+    }
 }
