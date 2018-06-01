@@ -7,9 +7,27 @@
 //
 
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main(){
+    int continua_menu=0, opcao_menu=0;
+    
+    while(continua_menu!=1){
+        printf(" ------------------------------------------------- \n");
+        printf("|   [1] - Digitar quantidade de cidades           | \n");
+        printf("|   [2] - Digitar a distâncias entre as cidades   | \n");
+        printf("|   [3] - Calcular a distância                    | \n");
+        printf("|   [4] - Sair                                    | \n");
+        printf(" ------------------------------------------------- \n\n");
+        
+        do{
+            printf("Digite a sua opção: ");
+            scanf("%d", &opcao_menu);
+            if(opcao_menu<1 || opcao_menu>4){
+                printf("Opção inválida, por favor tente novamente.\n\n");
+            }
+        }
+        while(opcao_menu<1 || opcao_menu>4);
+    }
 }
