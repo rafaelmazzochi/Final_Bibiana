@@ -8,7 +8,9 @@
 
 #ifndef quant_cidades_h
 #define quant_cidades_h
-int quant_cidades(int quantidade_cidades){
+int quant_cidades(){
+    
+    int quantidade_cidades;
     
     printf("Digite a quantidade de cidades: ");
     scanf("%d", &quantidade_cidades);

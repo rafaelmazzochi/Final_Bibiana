@@ -33,7 +33,8 @@ int main(){
         
         switch (opcao_menu) {
             case 1:
-                quant_cidades(quantidade_cidades);
+                
+                quantidade_cidades = quant_cidades();
                 
                 printf("%d Cidades \n", quantidade_cidades);
                 break;
