@@ -14,7 +14,6 @@
 
 int main(){
     int continua_menu=0, opcao_menu=0, quantidade_cidades=0;
-    float distancias[quantidade_cidades][quantidade_cidades];
     
     while(continua_menu!=1){
         printf(" ------------------------------------------------- \n");
@@ -43,6 +42,9 @@ int main(){
                 break;
                 
             case 2:
+                
+                dist(quantidade_cidades);
+                
                 break;
                 
             case 3:
