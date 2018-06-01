@@ -37,6 +37,7 @@ int main(){
             
             quant_cidades(quantidade_cidades);
             
+            printf("%d Cidades \n", quantidade_cidades);
             break;
         
         case 2:
