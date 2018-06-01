@@ -10,9 +10,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "quant_cidades.h"
+#include "distancias.h"
 
 int main(){
     int continua_menu=0, opcao_menu=0, quantidade_cidades=0;
+    float distancias[quantidade_cidades][quantidade_cidades];
     
     while(continua_menu!=1){
         printf(" ------------------------------------------------- \n");
@@ -37,6 +39,7 @@ int main(){
                 quantidade_cidades = quant_cidades();
                 
                 printf("%d Cidades \n", quantidade_cidades);
+                
                 break;
                 
             case 2:
