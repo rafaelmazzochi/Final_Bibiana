@@ -12,7 +12,7 @@
 #include "quant_cidades.h"
 
 int main(){
-    int continua_menu=0, opcao_menu=0, quantidade_cidades;
+    int continua_menu=0, opcao_menu=0, quantidade_cidades=0;
     
     while(continua_menu!=1){
         printf(" ------------------------------------------------- \n");
@@ -30,23 +30,22 @@ int main(){
             }
         }
         while(opcao_menu<1 || opcao_menu>4);
-    }
-    
-    switch (opcao_menu) {
-        case 1:
-            
-            quant_cidades(quantidade_cidades);
-            
-            printf("%d Cidades \n", quantidade_cidades);
-            break;
         
-        case 2:
-            break;
-            
-        case 3:
-            break;
-            
-        case 4:
-            exit(0);
+        switch (opcao_menu) {
+            case 1:
+                quant_cidades(quantidade_cidades);
+                
+                printf("%d Cidades \n", quantidade_cidades);
+                break;
+                
+            case 2:
+                break;
+                
+            case 3:
+                break;
+                
+            case 4:
+                exit(0);
+        }
     }
 }
