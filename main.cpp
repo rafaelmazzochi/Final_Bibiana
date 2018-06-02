@@ -19,7 +19,7 @@ int main(){
         printf(" ------------------------------------------------- \n");
         printf("|   [1] - Digitar quantidade de cidades           | \n");
         printf("|   [2] - Digitar a distâncias entre as cidades   | \n");
-        printf("|   [3] - Calcular a distância                    | \n");
+        printf("|   [3] - Mostrar Rsultado                        | \n");
         printf("|   [4] - Sair                                    | \n");
         printf(" ------------------------------------------------- \n\n");
         
