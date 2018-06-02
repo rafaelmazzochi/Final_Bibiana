@@ -8,14 +8,16 @@
 
 #ifndef quant_cidades_h
 #define quant_cidades_h
+using namespace std;
+
 int quant_cidades(){
     
     int quantidade_cidades;
     
-    printf("Digite a quantidade de cidades: ");
-    scanf("%d", &quantidade_cidades);
+    cout << "Digite a quantidade de cidades: ";
+    cin >> quantidade_cidades;
     
-    printf("\n");
+    cout << "\n";
     
     return quantidade_cidades;
 }
