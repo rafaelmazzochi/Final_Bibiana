@@ -17,20 +17,18 @@ int main(){
     int continua_menu=0, opcao_menu=0, quantidade_cidades=0;
     
     while(continua_menu!=1){
-        printf(" ------------------------------------------------- \n");
-        printf("|   [1] - Digitar quantidade de cidades           | \n");
-        printf("|   [2] - Digitar a distâncias entre as cidades   | \n");
-        printf("|   [3] - Mostrar Rsultado                        | \n");
-        printf("|   [4] - Sair                                    | \n");
-        printf(" ------------------------------------------------- \n\n");
+        cout <<" ------------------------------------------------- \n";
+        cout <<"|   [1] - Digitar quantidade de cidades           | \n";
+        cout <<"|   [2] - Digitar a distâncias entre as cidades   | \n";
+        cout <<"|   [3] - Mostrar Rsultado                        | \n";
+        cout <<"|   [4] - Sair                                    | \n";
+        cout <<" ------------------------------------------------- \n\n";
         
         do{
-            //printf("Digite a sua opção: ");
             cout << "Digite a sua opção:" ;
             cin >> opcao_menu;
-            //scanf("%d", &opcao_menu);
             if(opcao_menu<1 || opcao_menu>4){
-                printf("Opção inválida, por favor tente novamente.\n\n");
+                cout <<"Opção inválida, por favor tente novamente.\n\n";
             }
         }
         while(opcao_menu<1 || opcao_menu>4);
@@ -40,7 +38,7 @@ int main(){
                 
                 quantidade_cidades = quant_cidades();
                 
-                printf("%d Cidades \n", quantidade_cidades);
+                cout << quantidade_cidades << " Cidades \n";
                 
                 break;
                 
