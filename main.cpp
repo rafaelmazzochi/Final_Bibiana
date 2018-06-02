@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include "quant_cidades.h"
 #include "distancias.h"
+using namespace std;
 
 int main(){
     int continua_menu=0, opcao_menu=0, quantidade_cidades=0;
@@ -24,8 +25,10 @@ int main(){
         printf(" ------------------------------------------------- \n\n");
         
         do{
-            printf("Digite a sua opção: ");
-            scanf("%d", &opcao_menu);
+            //printf("Digite a sua opção: ");
+            cout << "Digite a sua opção:" ;
+            cin >> opcao_menu;
+            //scanf("%d", &opcao_menu);
             if(opcao_menu<1 || opcao_menu>4){
                 printf("Opção inválida, por favor tente novamente.\n\n");
             }
