@@ -14,7 +14,7 @@ void dist(int quantidade_cidades){
     float distancias[quantidade_cidades][quantidade_cidades];
     float mat_calc[quantidade_cidades][quantidade_cidades];
     int caminho[quantidade_cidades][quantidade_cidades];
-    float min=1500, total=0;
+    float min=1500, total[quantidade_cidades];
     int cidade_inicial=0, cidade_destino=0;
     int achou=0;
     int ci=0;
@@ -25,6 +25,7 @@ void dist(int quantidade_cidades){
             distancias[linhas][colunas] = 0;
             mat_calc[linhas][colunas] = 0;
             caminho[linhas][colunas] = 0;
+            total[linhas]=0;
         }
     }
     
@@ -56,14 +57,14 @@ void dist(int quantidade_cidades){
     
     cout << "Digite o número da cidade de partida: ";
     cin >> cidade_inicial;
-    cout << " ";
+    cout << "\n";
     cidade_inicial=cidade_inicial-1;
     
     min = 1500;
-    total = 0;
     cidade_destino = 0;
     
-    while(achou != 1){
+    while(achou <= quantidade_cidades){
+        min = 1500;
         for(int linhas=0; linhas<quantidade_cidades;linhas++){
             if(linhas == cidade_inicial){
                 for(int colunas=0;colunas<quantidade_cidades;colunas++){
@@ -71,8 +72,9 @@ void dist(int quantidade_cidades){
                         if(mat_calc[linhas][colunas] != 0){
                             if(mat_calc[linhas][colunas] < min){
                                 min = mat_calc[linhas][colunas];
-                                caminho[linhas][colunas] = 1;
-                                total = total+min;
+                                //caminho[linhas][colunas] = 1;
+                                total[linhas] = min;
+                                cout << "Resultado "<< linhas +1 << " : " << total[linhas] <<"\n" ;
                                 ci = colunas;
                             }
                         }
@@ -93,7 +95,7 @@ void dist(int quantidade_cidades){
                                 for(int l=0;l<quantidade_cidades;l++){
                                     mat_calc[l][colunas] = 0;
                                 }
-                                total = total+min;
+                                total[linhas] = min;
                                 caminho[linhas][colunas] = 1;
                             }
                         }
@@ -101,19 +103,24 @@ void dist(int quantidade_cidades){
                 }
             }
         }
-        
-        for(int linhas=0;linhas<quantidade_cidades;linhas++){
-            for(int colunas=0;colunas<quantidade_cidades;colunas++){
-                if(caminho[linhas][colunas] == 1){
-                    controle = controle+1;
-                    cout << controle << " \n";
-                }
-            }
-        }
-        if(controle == 5){
-            achou =1;
-        }
+        //if(controle == 5){
+            //achou =1;
+        //}
+        achou ++;
     }
+    
+    for(int linhas=0;linhas<quantidade_cidades;linhas++){
+        for(int colunas=0;colunas<quantidade_cidades;colunas++){
+            /*if(caminho[linhas][colunas] == 1){
+             controle = controle+1;
+             cout << controle << " \n";
+             }*/
+            cout << caminho[linhas][colunas] << "\t";
+        }
+        cout << "\n";
+    }
+    
+    cout << "\n\n\n" ;
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
@@ -122,9 +129,14 @@ void dist(int quantidade_cidades){
         cout << "\n";
     }
     
+    cout << "\n\n\n" ;
+    
     
     printf("Menor da coluna: %.2f \n\n", min);
-    printf("Soma total: %.2f \n\n", total);
+    //printf("Soma total: %.2f \n\n", total);
+    for(int linhas=0;linhas<quantidade_cidades;linhas++){
+        cout << "Resultado " << linhas+1 << ": " << total[linhas] <<"\n";
+    }
 }
 
 #endif /* distancias_h */
