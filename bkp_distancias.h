@@ -13,14 +13,18 @@ using namespace std;
 void dist(int quantidade_cidades){
     float distancias[quantidade_cidades][quantidade_cidades];
     float mat_calc[quantidade_cidades][quantidade_cidades];
+    int caminho[quantidade_cidades][quantidade_cidades];
     float min=1500;
     float total=0;
     int cidade_inicial=0, cidade_destino=0;
+    int achou=0;
+    int ci=0;
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
             distancias[linhas][colunas] = 0;
             mat_calc[linhas][colunas] = 0;
+            caminho[linhas][colunas] = 0;
         }
     }
     
@@ -58,49 +62,54 @@ void dist(int quantidade_cidades){
     total = 0;
     cidade_destino = 0;
     
-    for(int linhas=0; linhas<quantidade_cidades;linhas++){
-        if(linhas == cidade_inicial){
-            for(int colunas=0;colunas<quantidade_cidades;colunas++){
-                if(linhas != colunas){
-                    if(mat_calc[linhas][colunas] != 0){
-                        if(mat_calc[linhas][colunas] < min){
-                            min = mat_calc[linhas][colunas];
-                            mat_calc[colunas][linhas] = 0;
-                            mat_calc[linhas][colunas] = 0;
-                            total = total+min;
-                            min = 1500;
-                            cidade_destino = colunas;
-                            cout << "Cidade Destido" << cidade_destino;
-                            for(int l=0;l<quantidade_cidades;l++){
-                                mat_calc[l][colunas] = 0;
+    while(achou != 1){
+        for(int linhas=0; linhas<quantidade_cidades;linhas++){
+            if(linhas == cidade_inicial){
+                for(int colunas=0;colunas<quantidade_cidades;colunas++){
+                    if(linhas != colunas){
+                        if(mat_calc[linhas][colunas] != 0){
+                            if(mat_calc[linhas][colunas] < min){
+                                min = mat_calc[linhas][colunas];
+                                total = total+min;
+                                ci = colunas;
                             }
                         }
                     }
                 }
             }
         }
-        if(cidade_destino != 0){
-            for(int colunas=0;colunas<quantidade_cidades;colunas++){
-                if(linhas != colunas){
-                    if(mat_calc[linhas][colunas] != 0){
-                        if(mat_calc[linhas][colunas] < min){
-                            min = mat_calc[linhas][colunas];
-                            mat_calc[colunas][linhas] = 0;
-                            mat_calc[linhas][colunas] = 0;
-                            total = total+min;
-                            min = 1500;
-                            cidade_destino = colunas;
-                            for(int l=0;l<quantidade_cidades;l++){
-                                mat_calc[l][colunas] = 0;
+        
+        cidade_inicial = ci;
+        
+        for(int linhas=0; linhas<quantidade_cidades;linhas++){
+            if(linhas == cidade_inicial){
+                for(int colunas=0;colunas<quantidade_cidades;colunas++){
+                    if(linhas != colunas){
+                        if(mat_calc[linhas][colunas] != 0){
+                            if(mat_calc[linhas][colunas] == min){
+                                caminho[linhas][colunas] = 1;
+                                for(int l=0;l<quantidade_cidades;l++){
+                                    mat_calc[l][colunas] = 0;
+                                }
+                                total = total+min;
                             }
                         }
                     }
                 }
             }
         }
+        achou =1;
     }
     
-    //printf("Menor da coluna: %.2f \n\n", min);
+    for(int linhas=0;linhas<quantidade_cidades;linhas++){
+        for(int colunas=0;colunas<quantidade_cidades;colunas++){
+            cout << mat_calc[linhas][colunas] << "\t";
+        }
+        cout << "\n";
+    }
+    
+    
+    printf("Menor da coluna: %.2f \n\n", min);
     printf("Somta total: %.2f \n\n", total);
 }
 
