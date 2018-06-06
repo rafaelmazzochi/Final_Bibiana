@@ -18,7 +18,6 @@ void dist(int quantidade_cidades){
     int cidade_inicial=0, cidade_destino=0;
     int achou=0;
     int ci=0;
-    int controle=0;
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
@@ -103,18 +102,11 @@ void dist(int quantidade_cidades){
                 }
             }
         }
-        //if(controle == 5){
-            //achou =1;
-        //}
         achou ++;
     }
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
-            /*if(caminho[linhas][colunas] == 1){
-             controle = controle+1;
-             cout << controle << " \n";
-             }*/
             cout << caminho[linhas][colunas] << "\t";
         }
         cout << "\n";
@@ -133,7 +125,6 @@ void dist(int quantidade_cidades){
     
     
     printf("Menor da coluna: %.2f \n\n", min);
-    //printf("Soma total: %.2f \n\n", total);
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         cout << "Resultado " << linhas+1 << ": " << total[linhas] <<"\n";
     }
