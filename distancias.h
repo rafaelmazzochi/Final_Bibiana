@@ -65,34 +65,6 @@ void dist(int quantidade_cidades){
                     if(mat_calc[linhas][colunas] != 0){
                         if(mat_calc[linhas][colunas] < min){
                             min = mat_calc[linhas][colunas];
-                            mat_calc[colunas][linhas] = 0;
-                            mat_calc[linhas][colunas] = 0;
-                            total = total+min;
-                            min = 1500;
-                            cidade_destino = colunas;
-                            cout << "Cidade Destido" << cidade_destino;
-                            for(int l=0;l<quantidade_cidades;l++){
-                                mat_calc[l][colunas] = 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if(cidade_destino != 0){
-            for(int colunas=0;colunas<quantidade_cidades;colunas++){
-                if(linhas != colunas){
-                    if(mat_calc[linhas][colunas] != 0){
-                        if(mat_calc[linhas][colunas] < min){
-                            min = mat_calc[linhas][colunas];
-                            mat_calc[colunas][linhas] = 0;
-                            mat_calc[linhas][colunas] = 0;
-                            total = total+min;
-                            min = 1500;
-                            cidade_destino = colunas;
-                            for(int l=0;l<quantidade_cidades;l++){
-                                mat_calc[l][colunas] = 0;
-                            }
                         }
                     }
                 }
@@ -100,8 +72,8 @@ void dist(int quantidade_cidades){
         }
     }
     
-    //printf("Menor da coluna: %.2f \n\n", min);
-    printf("Somta total: %.2f \n\n", total);
+    printf("Menor da coluna: %.2f \n\n", min);
+    //printf("Somta total: %.2f \n\n", total);
 }
 
 #endif /* distancias_h */
