@@ -17,7 +17,8 @@ void dist(int quantidade_cidades){
     float min=1500, total[quantidade_cidades];
     int cidade_inicial=0, cidade_destino=0;
     int achou=0;
-    int ci=0;
+    int ci=0, guard_ci=0;
+    float soma=0;
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
@@ -58,6 +59,7 @@ void dist(int quantidade_cidades){
     cin >> cidade_inicial;
     cout << "\n";
     cidade_inicial=cidade_inicial-1;
+    guard_ci = cidade_inicial;
     
     min = 1500;
     cidade_destino = 0;
@@ -72,8 +74,7 @@ void dist(int quantidade_cidades){
                             if(mat_calc[linhas][colunas] < min){
                                 min = mat_calc[linhas][colunas];
                                 //caminho[linhas][colunas] = 1;
-                                total[linhas] = min;
-                                cout << "Resultado "<< linhas +1 << " : " << total[linhas] <<"\n" ;
+                                //total[linhas] = min;
                                 ci = colunas;
                             }
                         }
@@ -83,6 +84,8 @@ void dist(int quantidade_cidades){
         }
         
         cidade_inicial = ci;
+        cout << "\n Cidade destino: " << cidade_inicial+1 << "\n" ;
+        system( "read -n 1 -s -p \"Press any key to continue...\"" );
         
         for(int linhas=0; linhas<quantidade_cidades;linhas++){
             if(linhas == cidade_inicial){
@@ -96,6 +99,7 @@ void dist(int quantidade_cidades){
                                 }
                                 total[linhas] = min;
                                 caminho[linhas][colunas] = 1;
+                                cout << "Resultado "<< linhas +1 << " : " << total[linhas] <<"\n" ;
                             }
                         }
                     }
@@ -103,6 +107,21 @@ void dist(int quantidade_cidades){
             }
         }
         achou ++;
+    }
+    
+    for(int linhas=0;linhas<quantidade_cidades;linhas++){
+        if(linhas == ci){
+            for(int colunas=0;colunas<quantidade_cidades;colunas++){
+                if(colunas == guard_ci){
+                    for(int l=0;l<quantidade_cidades;l++){
+                        if(total[l] == 0){
+                            total[l] = distancias[linhas][colunas];
+                        }
+                        soma=soma+total[l];
+                    }
+                }
+            }
+        }
     }
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
@@ -128,6 +147,8 @@ void dist(int quantidade_cidades){
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         cout << "Resultado " << linhas+1 << ": " << total[linhas] <<"\n";
     }
+    
+    cout << "Soma final: " << soma << "\n";
 }
 
 #endif /* distancias_h */
