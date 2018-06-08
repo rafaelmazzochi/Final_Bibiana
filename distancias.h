@@ -20,6 +20,12 @@ void dist(int quantidade_cidades){
     int ci=0, guard_ci=0;
     float soma=0;
     
+    /*
+      + ----------------------------------------------------------------------------- +
+      | Declaração de variáveis                                                       |
+      + ----------------------------------------------------------------------------- +
+     */
+    
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
             distancias[linhas][colunas] = 0;
@@ -28,6 +34,13 @@ void dist(int quantidade_cidades){
             total[linhas]=0;
         }
     }
+    
+    /*
+      + ----------------------------------------------------------------------------- +
+      | Função para percorrer todas as matrizes e vetores do programa para todos      |
+      | iniciarem em 0.                                                               |
+      + ----------------------------------------------------------------------------- +
+     */
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
@@ -45,6 +58,13 @@ void dist(int quantidade_cidades){
         }
     }
     
+    /*
+        + ----------------------------------------------------------------------------- +
+        | Solicita para o usuário digitar a distância entre as cidades, de acordo com   |
+        | o número de cidades informada na função anterior.                             |
+        + ----------------------------------------------------------------------------- +
+     */
+    
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
             cout <<  distancias[linhas][colunas] << "\t" ;
@@ -52,8 +72,6 @@ void dist(int quantidade_cidades){
         }
         cout << "\n";
     }
-    
-    //teste de cálculo
     
     cout << "Digite o número da cidade de partida: ";
     cin >> cidade_inicial;
@@ -73,8 +91,6 @@ void dist(int quantidade_cidades){
                         if(mat_calc[linhas][colunas] != 0){
                             if(mat_calc[linhas][colunas] < min){
                                 min = mat_calc[linhas][colunas];
-                                //caminho[linhas][colunas] = 1;
-                                //total[linhas] = min;
                                 ci = colunas;
                             }
                         }
