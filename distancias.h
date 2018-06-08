@@ -109,6 +109,8 @@ void dist(int quantidade_cidades){
         achou ++;
     }
     
+    soma = 0;
+    
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         if(linhas == ci){
             for(int colunas=0;colunas<quantidade_cidades;colunas++){
