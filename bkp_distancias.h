@@ -20,6 +20,12 @@ void dist(int quantidade_cidades){
     int ci=0, guard_ci=0;
     float soma=0;
     
+    /*
+      + ----------------------------------------------------------------------------- +
+      | Declaração de variáveis                                                       |
+      + ----------------------------------------------------------------------------- +
+     */
+    
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
             distancias[linhas][colunas] = 0;
@@ -28,6 +34,13 @@ void dist(int quantidade_cidades){
             total[linhas]=0;
         }
     }
+    
+    /*
+      + ----------------------------------------------------------------------------- +
+      | Função para percorrer todas as matrizes e vetores do programa para todos      |
+      | iniciarem em 0.                                                               |
+      + ----------------------------------------------------------------------------- +
+     */
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
@@ -45,6 +58,13 @@ void dist(int quantidade_cidades){
         }
     }
     
+    /*
+        + ----------------------------------------------------------------------------- +
+        | Solicita para o usuário digitar a distância entre as cidades, de acordo com   |
+        | o número de cidades informada na função anterior.                             |
+        + ----------------------------------------------------------------------------- +
+     */
+    
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
             cout <<  distancias[linhas][colunas] << "\t" ;
@@ -53,13 +73,23 @@ void dist(int quantidade_cidades){
         cout << "\n";
     }
     
-    //teste de cálculo
+    /*
+      + -------------------------------------------------------------------- +
+      | Copia a matriz principal para uma secundária para realizar o cálculo |
+      + -------------------------------------------------------------------- +
+     */
     
     cout << "Digite o número da cidade de partida: ";
     cin >> cidade_inicial;
     cout << "\n";
     cidade_inicial=cidade_inicial-1;
     guard_ci = cidade_inicial;
+    
+    /*
+     + -------------------------------------------------------------------- +
+     | Usuário digita a cidade inicial do trajeto.                          |
+     + -------------------------------------------------------------------- +
+     */
     
     min = 1500;
     cidade_destino = 0;
@@ -73,8 +103,6 @@ void dist(int quantidade_cidades){
                         if(mat_calc[linhas][colunas] != 0){
                             if(mat_calc[linhas][colunas] < min){
                                 min = mat_calc[linhas][colunas];
-                                //caminho[linhas][colunas] = 1;
-                                //total[linhas] = min;
                                 ci = colunas;
                             }
                         }
@@ -107,6 +135,15 @@ void dist(int quantidade_cidades){
             }
         }
         achou ++;
+        /*
+         + ------------------------------------------------------------------------------------------- +
+         | Verificações do programa, encontra a cidade inicial (linha), vai procurar o menor           |
+         | caminho (colunas) para a próxima cidade, irá verificar todas as cidades que a distância for |
+         | diferente de 0. Quando encontrar, irá zerar a coluna inteira para identificar que já passou |
+         | por aquela cidade, quando encontrou o menor, armazena dentro de um vetor o valor para que   |
+         | seja somado no final e apresente o menor caminho para visitar todas as cidades.             |
+         + ------------------------------------------------------------------------------------------- +
+         */
     }
     
     soma = 0;
@@ -126,12 +163,26 @@ void dist(int quantidade_cidades){
         }
     }
     
+    /*
+     + ------------------------------------------------------------------------- +
+     | Após terminar os cálculos, a condição acima vai pegar a ultima posição    |
+     | que parou, e vai somar o valor de distância até o ponto incial (valor de  |
+     | volta), para obter o valor total.                                         |
+     + ------------------------------------------------------------------------- +
+     */
+    
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
             cout << caminho[linhas][colunas] << "\t";
         }
         cout << "\n";
     }
+    
+    /*
+        + ------------------------------------------------------------------------- +
+        | Matriz para mostrar o caminho, por quais pontos a matriz percorreu.       |
+        + ------------------------------------------------------------------------- +
+     */
     
     cout << "\n\n\n" ;
     
@@ -141,6 +192,11 @@ void dist(int quantidade_cidades){
         }
         cout << "\n";
     }
+    /*
+        + ------------------------------------------------------------------------- +
+        | Matriz para mostrar que zerou todas as cidades que foram visitadas.       |
+        + ------------------------------------------------------------------------- +
+     */
     
     cout << "\n\n\n" ;
     
@@ -150,7 +206,19 @@ void dist(int quantidade_cidades){
         cout << "Resultado " << linhas+1 << ": " << total[linhas] <<"\n";
     }
     
+    /*
+        + ------------------------------------------------------------------------- +
+        | Apresenta o vetor que guardou os resultados de cada cidade visitada       |
+        + ------------------------------------------------------------------------- +
+     */
+    
     cout << "Soma final: " << soma << "\n";
+    
+    /*
+        + ------------------------------------------------------------------------- +
+        | Apresenta a soma total dos resultados, mostrando o valor final.           |
+        + ------------------------------------------------------------------------- +
+     */
 }
 
 #endif /* distancias_h */
