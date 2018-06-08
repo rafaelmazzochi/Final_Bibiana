@@ -63,6 +63,9 @@ void dist(int quantidade_cidades){
         | Solicita para o usuário digitar a distância entre as cidades, de acordo com   |
         | o número de cidades informada na função anterior.                             |
         + ----------------------------------------------------------------------------- +
+     
+     
+     Terminar de colocar os comentários.
      */
     
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
