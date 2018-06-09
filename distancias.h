@@ -42,13 +42,16 @@ void dist(int quantidade_cidades){
       + ----------------------------------------------------------------------------- +
      */
     
+    srand(0);
+    
     for(int linhas=0;linhas<quantidade_cidades;linhas++){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
             if(linhas !=  colunas){
                 if(distancias[linhas][colunas] == 0){
-                    cout << "Digite a distância entre a cidade " << linhas+1 << " até a cidade " << colunas+1 << "  ";
-                    cin >> distancias[linhas][colunas];
-                    cout << "\n";
+                    //cout << "Digite a distância entre a cidade " << linhas+1 << " até a cidade " << colunas+1 << "  ";
+                    //cin >> distancias[linhas][colunas];
+                    //cout << "\n";
+                    distancias[linhas][colunas] = (rand()%(1400-1)+1);
                     distancias[colunas][linhas] = distancias[linhas][colunas];
                 }
             }
@@ -113,7 +116,7 @@ void dist(int quantidade_cidades){
         
         cidade_inicial = ci;
         cout << "\n Cidade destino: " << cidade_inicial+1 << "\n" ;
-        system( "read -n 1 -s -p \"Press any key to continue...\"" ); // se for usar no windows trocar pra: system('pause');
+        //system( "read -n 1 -s -p \"Press any key to continue...\"" ); // se for usar no windows trocar pra: system('pause');
         cout << "\n\n";
         
         for(int linhas=0; linhas<quantidade_cidades;linhas++){
