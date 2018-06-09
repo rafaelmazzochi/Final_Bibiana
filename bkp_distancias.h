@@ -114,6 +114,7 @@ void dist(int quantidade_cidades){
         cidade_inicial = ci;
         cout << "\n Cidade destino: " << cidade_inicial+1 << "\n" ;
         system( "read -n 1 -s -p \"Press any key to continue...\"" ); // se for usar no windows trocar pra: system('pause');
+        cout << "\n\n";
         
         for(int linhas=0; linhas<quantidade_cidades;linhas++){
             if(linhas == cidade_inicial){
@@ -127,7 +128,7 @@ void dist(int quantidade_cidades){
                                 }
                                 total[linhas] = min;
                                 caminho[linhas][colunas] = 1;
-                                cout << "Resultado "<< linhas +1 << " : " << total[linhas] <<"\n" ;
+                                //cout << "Resultado "<< linhas +1 << " : " << total[linhas] <<"\n" ;
                             }
                         }
                     }
