@@ -13,11 +13,11 @@ using namespace std;
 void dist(int quantidade_cidades){
     float distancias[quantidade_cidades][quantidade_cidades];
     float mat_calc[quantidade_cidades][quantidade_cidades];
-    int caminho[quantidade_cidades][quantidade_cidades];
+    float caminho[quantidade_cidades][quantidade_cidades];
     float min=1500, total[quantidade_cidades];
-    int cidade_inicial=0, cidade_destino=0;
-    int achou=0;
-    int ci=0, guard_ci=0;
+    float cidade_inicial=0, cidade_destino=0;
+    float achou=0;
+    float ci=0, guard_ci=0;
     float soma=0;
     
     /*
