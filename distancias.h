@@ -48,9 +48,6 @@ void dist(int quantidade_cidades){
         for(int colunas=0;colunas<quantidade_cidades;colunas++){
             if(linhas !=  colunas){
                 if(distancias[linhas][colunas] == 0){
-                    //cout << "Digite a distância entre a cidade " << linhas+1 << " até a cidade " << colunas+1 << "  ";
-                    //cin >> distancias[linhas][colunas];
-                    //cout << "\n";
                     distancias[linhas][colunas] = (rand()%(1400-1)+1);
                     distancias[colunas][linhas] = distancias[linhas][colunas];
                 }

@@ -19,9 +19,9 @@ int main(){
     while(continua_menu!=1){
         cout <<" ------------------------------------------------- \n";
         cout <<"|   [1] - Digitar quantidade de cidades           | \n";
-        cout <<"|   [2] - Digitar a distâncias entre as cidades   | \n";
-        cout <<"|   [3] - Mostrar Rsultado                        | \n";
-        cout <<"|   [4] - Sair                                    | \n";
+        cout <<"|   [2] - Calcular a distâncias entre as cidades  | \n";
+        //cout <<"|   [3] - Mostrar Rsultado                        | \n";
+        cout <<"|   [3] - Sair                                    | \n";
         cout <<" ------------------------------------------------- \n\n";
         
         do{
@@ -48,10 +48,10 @@ int main(){
                 
                 break;
                 
-            case 3:
-                break;
+            //case 3:
+               // break;
                 
-            case 4:
+            case 3:
                 exit(0);
         }
     }
